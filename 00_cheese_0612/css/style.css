@@ -1,0 +1,370 @@
+/* ここから下に記載していく */
+.title-container {
+  display: flex;
+
+  flex-wrap: wrap;
+  margin: 0 auto;
+  height: fit-content;
+}
+
+body {
+  font-family: "游ゴシック";
+}
+
+.logo {
+  padding: 10px 20px;
+  /*display: inline-block;*/
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  margin-left: auto;
+  font-size: 21px;
+  font-weight: bolder;
+  justify-content: flex-end;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  padding: 10%;
+}
+
+.item {
+  padding: 30px;
+  width: 32%;
+  background-color: #fff;
+  color: #000;
+}
+
+.mainbg {
+  position: relative;
+}
+
+.mainbg .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.mainbg .container p {
+  font-size: large;
+  color: white;
+  padding: 5%;
+}
+
+.mainbg .container h1 {
+  font-size: xx-large;
+  font-weight: bolder;
+  color: white;
+}
+
+.mainbg img {
+  width: 100%;
+}
+
+h2 {
+  font-size: larger;
+  font-weight: bold;
+  text-align: center;
+  padding:5%
+}
+
+h3 {
+  font-size: large;
+  text-align: center;
+  padding-bottom: 5%;
+  font-weight: bold;
+}
+
+.text-container {
+  background-color: #fafafa;
+  padding: 15%;
+}
+
+/* .text {
+  padding: 10%;
+} */
+
+p {
+  text-align: center;
+  line-height: 200%;
+}
+
+/* .banner {
+  display: table;
+  width: 100%;
+}
+
+.banner .cell{
+  display: table-cell;
+} */
+.banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  max-width: 100%;
+}
+
+.tile-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* grid-template-rows:200px; */
+}
+
+#tile1 {
+  background: url("../img/course_01.jpg") center/100% no-repeat;
+  background-size: cover;
+}
+
+#tile2 {
+  background: url("../img/course_02.jpg") center/100% no-repeat;
+  background-size: cover;
+}
+
+#tile3 {
+  background: url("../img/course_03.jpg") center/100% no-repeat;
+  background-size: cover;
+}
+
+.access {
+  background-color: #fafafa;
+  margin: 3%;
+}
+
+#cards {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 300px;
+}
+
+.card:nth-child(2) {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.picture img {
+  width: 100%;
+  height: 200px;
+}
+
+.description {
+  width: 100%;
+  height: 145px;
+  padding-right: 12px;
+  padding-left: 12px;
+  box-sizing: border-box;
+  text-align: left;
+}
+.description p{
+  text-align: left;
+  
+}
+
+.Form {
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+}
+
+@media screen and (max-width: 480px) {
+  .Form {
+    margin-top: 40px;
+  }
+}
+
+.Form-Item {
+  border-top: 1px solid #ddd;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+  .Form-Item {
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    flex-wrap: wrap;
+  }
+}
+
+.Form-Item:nth-child(5) {
+  border-bottom: 1px solid #ddd;
+}
+
+.Form-Item-Label {
+  width: 100%;
+  max-width: 350px;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 480px) {
+  .Form-Item-Label {
+    max-width: inherit;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+  }
+}
+
+.Form-Item-Label.isMsg {
+  margin-top: 8px;
+  margin-bottom: auto;
+}
+
+@media screen and (max-width: 480px) {
+  .Form-Item-Label.isMsg {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Form-Item-Label-Required {
+    border-radius: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    width: 32px;
+    font-size: 10px;
+  }
+}
+
+.Form-Item-Input {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-left: 40px;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 48px;
+  flex: 1;
+  width: 100%;
+  max-width: 410px;
+  background: #eaedf2;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 480px) {
+  .Form-Item-Input {
+    margin-left: 0;
+    margin-top: 18px;
+    height: 40px;
+    flex: inherit;
+    font-size: 15px;
+  }
+}
+
+.Form-Item-Textarea {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-left: 40px;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 216px;
+  flex: 1;
+  width: 100%;
+  max-width: 410px;
+  background: #eaedf2;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 480px) {
+  .Form-Item-Textarea {
+    margin-top: 18px;
+    margin-left: 0;
+    height: 200px;
+    flex: inherit;
+    font-size: 15px;
+  }
+}
+
+.Form-Btn {
+  border-radius: 6px;
+  margin-top: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 280px;
+  display: block;
+  letter-spacing: 0.05em;
+  background: #5bc8ac;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .Form-Btn {
+    margin-top: 24px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 160px;
+    font-size: 16px;
+  }
+}
+
+.footer {
+  background-color: gray;
+  text-align: center;
+  color: white;
+  padding: 5%;
+}
+
+.checkbox-wrapper p {
+  text-align: right;
+}
+
+
+section {
+  padding:2%;
+  background-color: #fafafa;
+} 
+
+td{
+  line-height: 200%;
+  text-align: left;
+
+}
+table{
+  width: 100%;
+}
+
+.btn{
+  width: 209px;
+  padding: 14px 0 16px 0;
+  font-size: 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin:5rem auto 1rem;
+  color: #fff;
+  background: #ffd61a;
+  line-height: 1;
+  border-radius: 50px;
+  transition: all .2s;
+}
+
+.btn:hover{
+  opacity: 0.6;
+}
+
+.text-container p{
+  text-align: left;
+}
