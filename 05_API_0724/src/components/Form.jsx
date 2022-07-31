@@ -39,14 +39,22 @@ const Form = () => {
   }
   const handleClick = async (startDate, endDate) => {
 
+    if (startDate == null || endDate == null) {
+      alert('日付を選択してください');
+    }
+
     const fetchData = async () => {
       const response = await fetch(
         `https://www.land.mlit.go.jp/webland/api/TradeListSearch?from=${startDate['startDate']}&to=${endDate['endDate']}&city=13102`
       )
       const data = await response.json();
-      console.log(data);
-      const houseList = data.results;
-      setHouse(houseList);
+      console.log(data.data.CityPlanning);
+      setData(data.data)
+
+
+      if (data.status === 'ERROR') {
+        alert('日付を選択してください。')
+      }
     };
     fetchData();
   }
@@ -80,21 +88,35 @@ const Form = () => {
       {/* <Data startDate={startDate} endDate={endDate}></Data> */}
 
       <button type="button" className="btn btn-primary" onClick={() => handleClick({ startDate }, { endDate })}>検索</button>
+      <table class="table table-striped">
+        <tbody>
+          <thead>
+            <tr>
+              <th scope="col">取引の種類</th>
+              <th scope="col">都市計画</th>
+              <th scope="col">地区名</th>
+              <th scope="col">面積（平方メートル）</th>
+              <th scope="col">取引価格（総額）</th>
+              <th scope="col">建物の構造</th>
+              <th scope="col">面積（平方メートル）</th>
+            </tr>
+          </thead>
+          {data.map((item, index) => (
 
-      {/* {data.map((item, index) => (
-        <div key={index}>
-           <Item
-        id={item.index}
-        type={item.Type}
-        cityPlanning={item.CityPlanning}
-        districtName={item.DistrictName}
-        area={item.Area}
-        tradePrice={item.TradePrice}
-        structure={item.Structure}
-        buildingYear={item.BuildingYear}
-      />
-        </div>
-      ))} */}
+            <tr key={index}>
+              <Item
+                id={item.index}
+                type={item.Type}
+                cityPlanning={item.CityPlanning}
+                districtName={item.DistrictName}
+                area={item.Area}
+                tradePrice={item.TradePrice}
+                structure={item.Structure}
+                buildingYear={item.BuildingYear}
+              /></tr>
+          ))}
+        </tbody>
+      </table>
 
       {/* {house.map((item, index) => (data => <div key={index}>{data.Area}</div>))} */}
 

@@ -1,6 +1,5 @@
 // rafce を入力後 tabキーを押す
 import React from "react";
-import Form from "./Form";
 
 // 1.useStateとuseEffectをimportします🤗
 import { useState, useEffect } from "react";
@@ -9,6 +8,7 @@ const Data = () => {
     // 2.useStateを準備します🤗
     const [house, setHouse] = useState([]);
     const [data, setData] = useState([]);
+    const [type, setType] = useState([]);
 
 
     // 3.useEffectを用いて、houseAPIのデータを取得します🤗（欲しいデータに精査して）
@@ -31,19 +31,54 @@ const Data = () => {
 
             // useStateを使ってhouseListの精査したデータを保持します🤗
             setHouse(houseList);
+
+
+
+
+
+
+
+            const row = data.data;
+            console.log(row[0].Type, "row");
+            console.log(row.item);
+
+            const type = row.map(
+                item => { return item.Type }
+            )
+            console.log(type);
+            setType(type);
+
+
+
+            setData(data.data);
+
         };
         // 3-2 fetchDataを実行します
         fetchData();
+
+
+
     }, []);
 
-    return (
-        <div className="ViewBox">
-            {/* {house.map((item, index) => (
-                <View key={index} houseItem={index} onClick={handleClick}/>
-            ))} */}
-        </div>
-        //
-    );
-};
 
+
+
+
+
+
+
+    if (data != null) {
+        return (
+            <div className="ViewBox">
+
+
+                {data.map(item => { return <div>{item.Type} {item.CityPlanning} {item.DistrictName} {item.Area} {item.TradePrice}</div> })}
+                {JSON.stringify(data[0])}
+                {type}
+            </div>
+            //
+            
+        );
+    };
+}
 export default Data;
